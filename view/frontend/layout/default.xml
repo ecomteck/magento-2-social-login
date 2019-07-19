@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Ecomteck
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Ecomteck.com license that is
+ * available through the world-wide-web at this URL:
+ * https://ecomteck.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ecomteck
+ * @package     Ecomteck_SocialLogin
+ * @copyright   Copyright (c) 2018 Ecomteck (https://ecomteck.com/)
+ * @license     https://ecomteck.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="head.additional">
+            <block class="Ecomteck\SocialLogin\Block\Css" name="social_login_custom_style" ifconfig="sociallogin/general/enabled" template="css.phtml"/>
+        </referenceBlock>
+        <referenceBlock name="head.components">
+            <block class="Magento\Framework\View\Element\Js\Components" name="captcha_page_head_components" ifconfig="sociallogin/general/enabled" template="Magento_Captcha::js/components.phtml"/>
+        </referenceBlock>
+
+        <referenceBlock name="header_customer_form_login" remove="true"/>
+        <referenceContainer name="content">
+            <block class="Ecomteck\SocialLogin\Block\Popup" name="social-login-popup" as="popup.modal" template="popup.phtml">
+                <block class="Ecomteck\SocialLogin\Block\Form\Login" name="social-login-popup-authentication" as="popup.authentication" template="popup/form/authentication.phtml">
+                    <block class="Ecomteck\SocialLogin\Block\Popup\Social" name="social-login-popup-authentication-social" as="popup.authentication.social" template="popup/form/authentication/social.phtml" />
+                    <block class="Magento\Captcha\Block\Captcha" name="social-login-captcha" as="login.captcha" after="-">
+                        <action method="setFormId">
+                            <argument name="formId" xsi:type="string">user_login</argument>
+                        </action>
+                        <action method="setImgWidth">
+                            <argument name="width" xsi:type="string">230</argument>
+                        </action>
+                        <action method="setImgHeight">
+                            <argument name="width" xsi:type="string">50</argument>
+                        </action>
+                    </block>
+                </block>
+                <block class="Ecomteck\SocialLogin\Block\Form\Register" name="social-login-popup-create" as="popup.create" template="popup/form/create.phtml">
+                    <block class="Magento\Captcha\Block\Captcha" name="social-create-captcha" as="create.captcha" after="-">
+                        <action method="setFormId">
+                            <argument name="formId" xsi:type="string">user_create</argument>
+                        </action>
+                        <action method="setImgWidth">
+                            <argument name="width" xsi:type="string">230</argument>
+                        </action>
+                        <action method="setImgHeight">
+                            <argument name="width" xsi:type="string">50</argument>
+                        </action>
+                    </block>
+                </block>
+                <block class="Magento\Framework\View\Element\Template" name="social-login-popup-forgot" as="popup.forgot" template="Ecomteck_SocialLogin::popup/form/forgot.phtml">
+                    <block class="Magento\Captcha\Block\Captcha" name="social-forgot-password-captcha" as="forgot.captcha" after="-">
+                        <action method="setFormId">
+                            <argument name="formId" xsi:type="string">user_forgotpassword</argument>
+                        </action>
+                        <action method="setImgWidth">
+                            <argument name="width" xsi:type="string">230</argument>
+                        </action>
+                        <action method="setImgHeight">
+                            <argument name="width" xsi:type="string">50</argument>
+                        </action>
+                    </block>
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="authentication-popup">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="authenticationPopup" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="social-buttons" xsi:type="array">
+                                    <item name="component" xsi:type="string">Ecomteck_SocialLogin/js/view/social-buttons</item>
+                                    <item name="displayArea" xsi:type="string">before</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

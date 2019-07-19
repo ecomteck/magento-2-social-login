@@ -1,0 +1,46 @@
+{
+  "name": "ecomteck/magento-2-social-login",
+  "description": "Magento 2 Social Login Extension",
+  "require": {
+    "ecomteck/module-core": "^1.3.9",
+    "hybridauth/hybridauth": "^2.9.6"
+  },
+  "type": "magento2-module",
+  "version": "2.5.0",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Ecomteck",
+      "email": "support@ecomteck.com",
+      "homepage": "https://ecomteck.com",
+      "role": "Technical Support"
+    }
+  ],
+  "keywords": [
+    "magento 2",
+    "social login",
+    "magento 2 social login",
+    "facebook login",
+    "Google Login",
+    "Instagram Login",
+    "LinkedIn Login",
+    "Microsoft Live Login",
+    "Twitter Login",
+    "Yahoo Login",
+    "FourSquare Login",
+    "Amazon Login",
+    "Login",
+    "ecomteck",
+    "google",
+    "facebook",
+    "twitter"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Ecomteck\\SocialLogin\\": ""
+    }
+  }
+}

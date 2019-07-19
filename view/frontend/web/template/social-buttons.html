@@ -1,0 +1,33 @@
+<!--
+/**
+ * Ecomteck
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Ecomteck.com license that is
+ * available through the world-wide-web at this URL:
+ * https://ecomteck.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Ecomteck
+ * @package     Ecomteck_SocialLogin
+ * @copyright   Copyright (c) 2018 Ecomteck (https://ecomteck.com/)
+ * @license     https://ecomteck.com/LICENSE.txt
+ */
+ -->
+
+<!-- ko if: isActive() -->
+<div class="block social-login-authentication-popup">
+    <div class="block-content" data-bind="foreach: socials()">
+        <div class="actions-toolbar social-btn" data-bind="css: key + '-login'">
+            <a class="btn btn-block btn-social" data-bind="css: 'btn-' + btn_key, socialButton: $parent.isActive, url: url, label: label">
+                <span class="fab fa-3x" data-bind="css: 'fa-' + btn_key"></span>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /ko -->
