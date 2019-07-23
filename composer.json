@@ -42,5 +42,7 @@
     "psr-4": {
       "Ecomteck\\SocialLogin\\": ""
     }
-  }
+  },
+   "minimum-stability": "beta",
+   "prefer-stable": true
 }
