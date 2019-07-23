@@ -3,7 +3,7 @@
   "description": "Magento 2 Social Login Extension",
   "require": {
     "ecomteck/module-core": "1.*",
-    "hybridauth/hybridauth": "^2.9.6"
+    "hybridauth/hybridauth": "^3.0"
   },
   "type": "magento2-module",
   "version": "1.0.0",
