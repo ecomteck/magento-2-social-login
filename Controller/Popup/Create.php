@@ -21,6 +21,7 @@
 
 namespace Ecomteck\SocialLogin\Controller\Popup;
 
+use Magento\Customer\Api\CustomerRepositoryInterface as CustomerRepository;
 use Magento\Captcha\Helper\Data as CaptchaData;
 use Magento\Customer\Api\AccountManagementInterface;
 use Magento\Customer\Api\Data\AddressInterfaceFactory;
@@ -104,6 +105,7 @@ class Create extends CreatePost
      * @param \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory
      * @param \Magento\Captcha\Helper\Data $captchaHelper
      * @param \Ecomteck\SocialLogin\Helper\Data $socialHelper
+     * @param CustomerRepository $customerRepository
      */
     public function __construct(
         Context $context,
@@ -126,7 +128,8 @@ class Create extends CreatePost
         AccountRedirect $accountRedirect,
         JsonFactory $resultJsonFactory,
         CaptchaData $captchaHelper,
-        Data $socialHelper
+        Data $socialHelper,
+        CustomerRepository $customerRepository
     )
     {
         $this->resultJsonFactory = $resultJsonFactory;
@@ -151,7 +154,8 @@ class Create extends CreatePost
             $escaper,
             $customerExtractor,
             $dataObjectHelper,
-            $accountRedirect
+            $accountRedirect,
+            $customerRepository
         );
     }
 
